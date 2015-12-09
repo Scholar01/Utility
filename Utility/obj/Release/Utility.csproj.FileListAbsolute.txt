@@ -1,0 +1,8 @@
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\Utility.dll
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\Utility.pdb
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\obj\Release\Utility.dll
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\obj\Release\Utility.pdb
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\System.Net.Http.dll
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\System.Net.Http.xml
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\zh-Hans\System.Net.Http.resources.dll
+C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\obj\Release\Utility.csprojResolveAssemblyReference.cache
