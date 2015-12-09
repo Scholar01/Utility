@@ -49,23 +49,8 @@ namespace Scholar.Utility
 
             return arrayOfByte2.ToHexString();
         }
-        public static byte[] ZlibCompres(byte[] bin)
-        {
-            Stream streamOut = new MemoryStream(bin);
 
-            zlib.ZOutputStream streamZOut = new zlib.ZOutputStream(streamOut, zlib.zlibConst.Z_DEFAULT_COMPRESSION);
-
-            byte[] buffer = new byte[2000];
-            int len;
-            while ((len = streamZOut.Read(buffer, 0, 2000)) > 0)
-            {
-                streamOut.Write(buffer, 0, len);
-            }
-
-            return outStream.ToArray();
-
-        }
-        public static void CopyStream(System.IO.Stream input, System.IO.Stream output)
+        private static void CopyStream(System.IO.Stream input, System.IO.Stream output)
         {
             byte[] buffer = new byte[2000];
             int len;
@@ -80,15 +65,41 @@ namespace Scholar.Utility
         /// </summary>
         /// <param name="sourceByte">需要被压缩的字节数组</param>
         /// <returns>压缩后的字节数组</returns>
-        private static Stream compressStream(Stream sourceStream)
+        public static byte[] ZlibCompres(byte[] bin)
         {
+            Stream sourceStream = new MemoryStream(bin);
             MemoryStream streamOut = new MemoryStream();
             ZOutputStream streamZOut = new ZOutputStream(streamOut, zlibConst.Z_DEFAULT_COMPRESSION);
-            CopyStream(sourceStream, streamZOut);
-            streamZOut.finish();
-            return streamOut;
+            try
+            {
+                CopyStream(sourceStream, streamZOut);
+                return streamOut.ToArray();
+            }
+            finally
+            {
+                sourceStream.Dispose();
+                streamOut.Dispose();
+                streamZOut.Dispose();
+            }
+          
         }
-
+        private static byte[] ZlibDecompress(byte[] bin)
+        {
+            Stream sourceStream = new MemoryStream(bin);
+            MemoryStream outStream = new MemoryStream();
+            ZOutputStream outZStream = new ZOutputStream(outStream);
+            try
+            {
+                CopyStream(sourceStream, outZStream);
+                return outStream.ToArray();
+            }
+            finally
+            {
+                sourceStream.Dispose();
+                outStream.Dispose();
+                outZStream.Dispose();
+            }
+        }
 
         public static byte[] StreamToBytes(Stream stream)
 
@@ -96,7 +107,7 @@ namespace Scholar.Utility
 
             byte[] bytes = new byte[2000];
 
-            stream.Write(bytes, 0,2000);
+            stream.Write(bytes, 0, 2000);
 
             return bytes;
         }

@@ -5,4 +5,3 @@ C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\obj\Relea
 C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\System.Net.Http.dll
 C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\System.Net.Http.xml
 C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\bin\Release\zh-Hans\System.Net.Http.resources.dll
-C:\Users\scholar\Documents\Visual Studio 2015\Projects\Utility\Utility\obj\Release\Utility.csprojResolveAssemblyReference.cache
