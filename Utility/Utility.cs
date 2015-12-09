@@ -83,7 +83,7 @@ namespace Scholar.Utility
             }
           
         }
-        private static byte[] ZlibDecompress(byte[] bin)
+        public static byte[] ZlibDecompress(byte[] bin)
         {
             Stream sourceStream = new MemoryStream(bin);
             MemoryStream outStream = new MemoryStream();
@@ -101,15 +101,6 @@ namespace Scholar.Utility
             }
         }
 
-        public static byte[] StreamToBytes(Stream stream)
-
-        {
-
-            byte[] bytes = new byte[2000];
-
-            stream.Write(bytes, 0, 2000);
-
-            return bytes;
-        }
+    
     }
 }
