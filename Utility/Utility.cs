@@ -65,42 +65,47 @@ namespace Scholar.Utility
         /// </summary>
         /// <param name="sourceByte">需要被压缩的字节数组</param>
         /// <returns>压缩后的字节数组</returns>
-        public static byte[] ZlibCompres(byte[] bin)
+        public static byte[] ZlibCompress(byte[] bin)
         {
             Stream sourceStream = new MemoryStream(bin);
             MemoryStream streamOut = new MemoryStream();
             ZOutputStream streamZOut = new ZOutputStream(streamOut, zlibConst.Z_DEFAULT_COMPRESSION);
-            try
-            {
-                CopyStream(sourceStream, streamZOut);
-                return streamOut.ToArray();
-            }
-            finally
-            {
-                sourceStream.Dispose();
-                streamOut.Dispose();
-                streamZOut.Dispose();
-            }
-          
+            CopyStream(sourceStream, streamZOut);
+            streamZOut.finish();
+            byte[] ret = streamOut.ToArray();
+            sourceStream.Dispose();
+            streamOut.Dispose();
+            streamZOut.Dispose();
+            return ret;
+
+
         }
         public static byte[] ZlibDecompress(byte[] bin)
         {
             Stream sourceStream = new MemoryStream(bin);
             MemoryStream outStream = new MemoryStream();
             ZOutputStream outZStream = new ZOutputStream(outStream);
-            try
-            {
-                CopyStream(sourceStream, outZStream);
-                return outStream.ToArray();
-            }
-            finally
-            {
-                sourceStream.Dispose();
-                outStream.Dispose();
-                outZStream.Dispose();
-            }
+
+            CopyStream(sourceStream, outZStream);
+            outStream.Flush();
+            byte[] ret = outStream.ToArray();
+            sourceStream.Dispose();
+            outStream.Dispose();
+            outZStream.Dispose();
+            return ret;
+
+
+
+        }
+        /// <summary>
+        /// 将windows的时间转换为UNIX时间
+        /// </summary>
+        /// <returns></returns>
+        public static long UNIX_TIMESTAMP()
+        {
+            var unixTime = (DateTime.Now.ToUniversalTime().Ticks - 621355968000000000) / 10000000;
+            return unixTime;
         }
 
-    
     }
 }
