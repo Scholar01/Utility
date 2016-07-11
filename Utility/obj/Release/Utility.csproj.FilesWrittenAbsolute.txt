@@ -1,0 +1,8 @@
+/Users/scholar/Projects/Utility/Utility/obj/Release/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/scholar/Projects/Utility/Utility/bin/Release/Utility.dll.mdb
+/Users/scholar/Projects/Utility/Utility/bin/Release/Utility.pdb
+/Users/scholar/Projects/Utility/Utility/bin/Release/Utility.dll
+/Users/scholar/Projects/Utility/Utility/obj/Release/Utility.dll
+/Users/scholar/Projects/Utility/Utility/obj/Release/Utility.dll.mdb
+/Users/scholar/Projects/Utility/Utility/obj/Release/Utility.pdb
+/Users/scholar/Projects/Utility/Utility/bin/Release/zlib.net.dll

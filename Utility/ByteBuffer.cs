@@ -205,6 +205,16 @@ namespace System
             byte[] b = Encoding.UTF8.GetBytes(value);
             Put(b);
         }
+
+		public void PutVByte32(int auValue)
+		{
+			while (auValue >= 128)
+			{
+				Put ((byte)(128 + (auValue & 127)));
+				auValue >>= 7;
+			}
+			Put((byte)auValue);
+		}
       
         /// <summary>
         /// 压入一个令牌
@@ -442,6 +452,25 @@ namespace System
             }
             return bin;
         }
+		public int GetVByte32()
+		{
+			int result = 0;
+			int num = 0;
+			int num2 = 0;
+			byte b = Get();
+			int num3;
+			while ((b & 255) >= 128)
+			{
+				num3 = (int)(b & 127);
+				num2 += num3 << num;
+				num += 7;
+				b = Get();
+			}
+			num3 = (int)b;
+			num2 += num3 << num;
+			result = num2;
+			return result;
+		}
         public byte[] GetToken(int i)
         {
             byte[] bin;

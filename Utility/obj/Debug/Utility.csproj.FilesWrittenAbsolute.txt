@@ -1,0 +1,6 @@
+/Users/scholar/Projects/Utility/Utility/obj/Debug/.NETFramework,Version=v4.0.AssemblyAttribute.cs
+/Users/scholar/Projects/Utility/Utility/bin/Debug/Utility.dll.mdb
+/Users/scholar/Projects/Utility/Utility/bin/Debug/Utility.dll
+/Users/scholar/Projects/Utility/Utility/obj/Debug/Utility.dll
+/Users/scholar/Projects/Utility/Utility/obj/Debug/Utility.dll.mdb
+/Users/scholar/Projects/Utility/Utility/bin/Debug/zlib.net.dll
